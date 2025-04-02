@@ -45,11 +45,9 @@ main :: proc() {
     rl.InitWindow(rl.GetMonitorWidth(monitor) / 2, rl.GetMonitorHeight(monitor) / 2, "ulti's master program") 
     rl.SetTargetFPS(60)
 
-    DATA_PATH := filepath.dir(os.args[0])
-    data_file := fmt.aprint(DATA_PATH, "\\data.txt", sep="")
-    fmt.println("Data path: ", data_file)
-    buttons := parse_data(data_file)
-    defer      write_data(data_file, buttons)
+    os.set_current_directory(filepath.dir(os.args[0]))
+    buttons := parse_data("data.txt")
+    defer      write_data("data.txt", buttons)
     
     SH : rl.Color = {  20, 20,  20,  255 }
     BG : rl.Color = {  40,  40,  40, 255 }
@@ -80,7 +78,7 @@ main :: proc() {
     })
 
     rl.InitAudioDevice()
-    click_sound := rl.LoadSound(fmt.caprint(DATA_PATH, "\\click.wav", sep=""))
+    click_sound := rl.LoadSound("click.wav")
     rl.PlaySound(click_sound)
 
     frames: int
