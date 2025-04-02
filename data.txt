@@ -1,0 +1,7 @@
+ACTION | NAME   | VALUE
+COPY   | quotes | „ “
+COPY   | phone  | YOURNUMBER
+COPY   | shrug  | ¯\_(ツ)_/¯
+COPY   | crying | ಥ_ಥ
+OPEN   | this   | nvim-qt data.txt
+OPEN   | Floorp | floorp
